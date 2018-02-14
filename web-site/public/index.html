@@ -1,0 +1,38 @@
+<div id="log">
+</div>
+<p id="p"></p>
+<input type="text" placeholder="phone number" id="text" />
+<input type="text" placeholder="token" id="message" />
+<button>send</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+/*var name = prompt('what is your name?');*/
+var sock = new WebSocket("ws://192.168.99.100:3003/");
+var log = document.getElementById('log');
+var p = document.getElementById('p');
+ /*sock.onopen = function(){
+	
+	sock.send(JSON.stringify({
+	type : "name",
+	data : name
+	}));
+
+}; */
+
+sock.onmessage = function(event){
+	console.log(event);
+	
+}
+document.querySelector('button').onclick = function(){
+var text = document.getElementById('text').value;
+var message = document.getElementById('message').value;
+sock.send(JSON.stringify({
+	type : "message",
+	phone : text,
+	message : message
+	}));
+
+}
+
+</script>
