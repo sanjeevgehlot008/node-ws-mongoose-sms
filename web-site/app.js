@@ -105,6 +105,14 @@ app.get('/', function(req, res, next) {
 res.sendFile(__dirname + "/index.html");
 });
 
+app.get('/viewsms', function(req, res, next) {
+
+	sms.find(function(err, data){
+		  res.json({"Response" : data});
+	  });
+  
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
