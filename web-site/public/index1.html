@@ -1,0 +1,37 @@
+<div id="log">
+</div>
+<p id="p"></p>
+
+<input type="text" placeholder="OTP" id="otp" />
+
+<button>send</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+/*var name = prompt('what is your name?');*/
+var sock = new WebSocket("ws://localhost:7000/verifyOTP");
+var log = document.getElementById('log');
+var p = document.getElementById('p');
+ /*sock.onopen = function(){
+	
+	sock.send(JSON.stringify({
+	type : "name",
+	data : name
+	}));
+
+}; */
+
+sock.onmessage = function(event){
+	console.log(event);
+	
+}
+document.querySelector('button').onclick = function(){
+var otp = document.getElementById('otp').value;
+sock.send(JSON.stringify({
+	type : "message",
+	otp : otp
+	}));
+
+}
+
+</script>

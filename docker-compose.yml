@@ -1,6 +1,23 @@
 version: '3'
 services:
-  web:
+    
+  gateway:
+    image: docker-node-express-mongoapp-gateway
+    build: ./gateway
+    command: node app.js
+    ports:
+      - "3006:3006"
+    volumes:
+      - ./gateway:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - "mongo"
+    environment:
+      - DATABASE_URL=mongodb://192.168.99.100/nodewebappdbwebsocket
+      - KAVENEGAR_API_KEY="345271454776727A622B384B53382B323356507233673D3D"
+
+      
+  web-site:
     image: docker-node-express-mongoapp
     build: ./web-site
     command: node app.js
@@ -11,6 +28,38 @@ services:
       - /usr/src/app/node_modules
     depends_on:
       - "mongo"
+  
+  sms-services:
+    image: docker-node-express-mongoapp-sms
+    build: ./sms-services
+    command: node app.js
+    ports:
+      - "3004:3004"
+    volumes:
+      - ./sms-services:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - "mongo"
+    environment:
+      - DATABASE_URL=mongodb://192.168.99.100/nodewebappdbwebsocket
+      - KAVENEGAR_API_KEY="345271454776727A622B384B53382B323356507233673D3D"
+
+  user-registration:
+    image: docker-node-express-mongoapp-user-registration
+    build: ./user-registration
+    command: node app.js
+    ports:
+      - "3005:3005"
+    volumes:
+      - ./user-registration:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - "mongo"
+    environment:
+      - DATABASE_URL=mongodb://192.168.99.100/nodewebappdbwebsocket
+      - KAVENEGAR_API_KEY="345271454776727A622B384B53382B323356507233673D3D"
+   
+  
   mongo:
     image: "mongo"
 

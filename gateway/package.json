@@ -1,0 +1,36 @@
+{
+  "name": "nodewebapp",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.15.5",
+    "express-http-proxy": "^1.1.0",
+    "express-ws": "^3.0.0",
+    "express-ws-routes": "^1.1.0",
+    "jade": "~1.11.0",
+    "kavenegar": "^2.0.1",
+    "method-override": "^2.3.10",
+    "mongodb": "^3.0.1",
+    "mongoose": "^5.0.1",
+    "morgan": "~1.9.0",
+    "node-async-router": "0.0.2",
+    "node-phonenumber": "^1.0.0",
+    "nodemon": "^1.14.12",
+    "random-number": "0.0.9",
+    "serve-favicon": "~2.4.5",
+    "unix-timestamp": "^0.2.0",
+    "validator": "^9.2.0",
+    "websocket-router-server": "0.0.3",
+    "ws": "^4.0.0"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^3.0.3",
+    "utf-8-validate": "^4.0.0"
+  }
+}

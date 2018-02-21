@@ -13,10 +13,11 @@ var SMS_PERMISSION_AUTH_TOKEN = require('./config/token');
 var validator = require('validator');
 
 
-var WebSocket = require('ws').Server;
+/* var WebSocket = require('ws').Server; */
 
 var app = express();
 const server = http.createServer(app);
+/*
 const s = new WebSocket({ server });
 
 s.on('connection',function(ws){
@@ -82,7 +83,7 @@ s.on('connection',function(ws){
 	});
 	
 });
-
+*/
 
 
 
@@ -102,16 +103,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function(req, res, next) {
 
-res.sendFile(__dirname + "/index.html");
-});
+res.sendFile(__dirname + "/index111.html");
 
-app.get('/viewsms', function(req, res, next) {
+})
 
-	sms.find(function(err, data){
-		  res.json({"Response" : data});
-	  });
-  
-});
+app.get('/verify', function(req, res, next) {
+
+res.sendFile(__dirname + "/index1.html");
+
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
