@@ -14,7 +14,7 @@ services:
       - "mongo"
     environment:
       - DATABASE_URL=mongodb://192.168.99.100/nodewebappdbwebsocket
-      - KAVENEGAR_API_KEY="345271454776727A622B384B53382B323356507233673D3D"
+      - KAVENEGAR_API_KEY="******************************************"
 
       
   web-site:
@@ -42,7 +42,7 @@ services:
       - "mongo"
     environment:
       - DATABASE_URL=mongodb://192.168.99.100/nodewebappdbwebsocket
-      - KAVENEGAR_API_KEY="345271454776727A622B384B53382B323356507233673D3D"
+      - KAVENEGAR_API_KEY="******************************************"
 
   user-registration:
     image: docker-node-express-mongoapp-user-registration
@@ -57,7 +57,7 @@ services:
       - "mongo"
     environment:
       - DATABASE_URL=mongodb://192.168.99.100/nodewebappdbwebsocket
-      - KAVENEGAR_API_KEY="345271454776727A622B384B53382B323356507233673D3D"
+      - KAVENEGAR_API_KEY="******************************************"
    
   
   mongo:
